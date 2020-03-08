@@ -1,6 +1,6 @@
 import { SET_LOADING, GET_PRODUCTS } from './actions';
 const defaultState = {
-  loading: true,
+  loading: false,
   products: []
 };
 

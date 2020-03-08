@@ -22,7 +22,7 @@ export const setLoading = () => ({ type: SET_LOADING });
 
 export const getProducts = () => {
   return async function(dispatch) {
-    setLoading();
+    dispatch(setLoading());
     const response = await axios
       .get(
         'https://johnsmilgatutorials.com/projects/react-tech-store-v2/products'
