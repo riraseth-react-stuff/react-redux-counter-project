@@ -1,23 +1,23 @@
 import React from 'react';
 import Counter from './Counter';
 import { createStore } from 'redux';
-import { DECREASE, INCREASE, RESET } from './actions';
 import reducer from './reducers';
+import { Provider } from 'react-redux';
 // setup initial state
 const defaultState = {
-  count: 14,
-  name: 'wick'
+  count: 299,
+  name: 'john wick'
 };
 
 // setup store
 const store = createStore(reducer, defaultState);
-store.dispatch({ type: DECREASE });
-store.dispatch({ type: INCREASE });
-store.dispatch({ type: RESET });
-// console.log(store.getState());
 
 const App = () => {
-  return <Counter state={store.getState()} />;
+  return (
+    <Provider store={store}>
+      <Counter />;
+    </Provider>
+  );
 };
 
 export default App;
