@@ -1,3 +1,4 @@
+import axios from 'axios';
 // counter actions
 export const DECREASE = 'DECREASE';
 export const INCREASE = 'INCREASE';
@@ -16,3 +17,19 @@ export const modalOpen = (name, text) => ({
   type: MODAL_OPEN,
   payload: { name, text }
 });
+
+export const setLoading = () => ({ type: SET_LOADING });
+
+export const getProducts = () => {
+  return async function(dispatch) {
+    setLoading();
+    const response = await axios
+      .get(
+        'https://johnsmilgatutorials.com/projects/react-tech-store-v2/products'
+      )
+      .catch(error => console.log(error));
+    dispatch({ type: GET_PRODUCTS, payload: response.data });
+  };
+};
+
+// export const getProducts = () => async (dispatch) => {}
