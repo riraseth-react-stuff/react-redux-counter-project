@@ -7,7 +7,7 @@ export default function reducer(state, action) {
     case INCREASE:
       return { ...state, count: state.count + 1 };
     case RESET:
-      return { ...state, count: 0 };
+      return { ...state, count: 299 };
     default:
       return state;
   }
