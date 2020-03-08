@@ -7,6 +7,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import countReducer from './countReducer';
 import productReducer from './productReducer';
 import modalReducer from './modalReducer';
+// get components
+import Modal from './Modal';
 // setup store
 const store = createStore(
   combineReducers({
@@ -21,6 +23,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <Counter></Counter>
+      <Modal></Modal>
     </Provider>
   );
 };
