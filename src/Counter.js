@@ -22,12 +22,11 @@ function Counter({ name, count, increase, decrease, reset }) {
   );
 }
 // getting props from the store in <Provider store={store}/> in App.js so they can be accessed in the Counter function
-function mapStateToProps(state) {
-  return { count: state.count, name: state.name };
+function mapStateToProps({ countState: { count, name } }) {
+  return { count: count, name: name };
 }
-
+// redux passes dispatch through all reducers
 function mapDispatchToProps(dispatch, ownProps) {
-  console.log(ownProps);
   return {
     increase: () => dispatch({ type: INCREASE }),
     decrease: () => dispatch({ type: DECREASE }),
